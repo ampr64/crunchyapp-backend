@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ext_mitorres/Desktop/segundoparcial-mtorres/segundoparcial-mtorres/segundoparcial-mtorres.csproj": {}
+  },
+  "projects": {
+    "/Users/ext_mitorres/Desktop/segundoparcial-mtorres/segundoparcial-mtorres/segundoparcial-mtorres.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ext_mitorres/Desktop/segundoparcial-mtorres/segundoparcial-mtorres/segundoparcial-mtorres.csproj",
+        "projectName": "segundoparcial-mtorres",
+        "projectPath": "/Users/ext_mitorres/Desktop/segundoparcial-mtorres/segundoparcial-mtorres/segundoparcial-mtorres.csproj",
+        "packagesPath": "/Users/ext_mitorres/.nuget/packages/",
+        "outputPath": "/Users/ext_mitorres/Desktop/segundoparcial-mtorres/segundoparcial-mtorres/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/ext_mitorres/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
