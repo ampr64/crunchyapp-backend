@@ -10,7 +10,7 @@ using segundoparcial_mtorres.Models;
 namespace segundoparcial_mtorres.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class CategoryController : Controller
     {
         [HttpGet]
         public async Task<IEnumerable<Category>> GetAllAsync()
@@ -18,14 +18,12 @@ namespace segundoparcial_mtorres.Controllers
             return new List<Category>();
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public async Task<Category> GetById(int id)
         {
             return new Category();
         }
 
-        // POST api/values
         [HttpPost]
         public void Create([FromBody]Category newCategory)
         {
