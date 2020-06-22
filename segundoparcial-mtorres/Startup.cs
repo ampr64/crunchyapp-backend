@@ -28,7 +28,7 @@ namespace segundoparcial_mtorres
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Segundo Parcial", Version = "v1" });
             });
 
-            services.AddDbContext<ApplicationContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("StreamDatabase")));
 
         }
