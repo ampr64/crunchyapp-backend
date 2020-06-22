@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DAL\20200622012259_InitialMigration.cs" />
-    <Compile Remove="DAL\20200622012259_InitialMigration.Designer.cs" />
+    <Compile Remove="Data\20200622012259_InitialMigration.cs" />
+    <Compile Remove="Data\20200622012259_InitialMigration.Designer.cs" />
   </ItemGroup>
 
 
