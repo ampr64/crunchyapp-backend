@@ -1,12 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using segundoparcial_mtorres.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace segundoparcial_mtorres.DAL.Mappers
 {
-    public class AnimeMapper : IEntityTypeConfiguration<Anime>
+    public class MangaMapper : IEntityTypeConfiguration<Manga>
     {
-        public void Configure(EntityTypeBuilder<Anime> builder)
+        public void Configure(EntityTypeBuilder<Manga> builder)
         {
             builder.HasKey(p => p.Id);
 

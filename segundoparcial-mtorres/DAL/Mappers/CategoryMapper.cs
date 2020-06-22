@@ -4,28 +4,19 @@ using segundoparcial_mtorres.Models;
 
 namespace segundoparcial_mtorres.DAL.Mappers
 {
-    public class AnimeMapper : IEntityTypeConfiguration<Anime>
+    public class CategoryMapper : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Anime> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Description)
-                .HasMaxLength(1000)
-                .IsRequired();
-
-            builder.Property(p => p.ImageURL)
-                .IsUnicode(false)
                 .HasMaxLength(100)
-                .IsRequired(false);
+                .IsRequired();
 
             builder.Property(p => p.Title)
                 .HasMaxLength(100)
                 .IsRequired();
-
-            builder.HasOne(p => p.Category)
-                .WithMany()
-                .HasForeignKey(p => p.CategoryId);
         }
     }
 }
