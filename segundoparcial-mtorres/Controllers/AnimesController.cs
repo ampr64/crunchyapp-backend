@@ -10,36 +10,39 @@ using segundoparcial_mtorres.Models;
 namespace segundoparcial_mtorres.Controllers
 {
     [Route("api/[controller]")]
-    public class CategoryController : Controller
+    public class AnimesController : Controller
     {
         [HttpGet]
-        public async Task<IEnumerable<Category>> GetAllAsync()
+        public async Task<IEnumerable<Anime>> GetAllAsync()
         {
-            return new List<Category>();
+            return new List<Anime>();
         }
 
         [HttpGet("{id}")]
-        public async Task<Category> GetById(int id)
+        public async Task<Anime> GetByIdAsync(int id)
         {
-            return new Category();
+            return new Anime();
         }
 
         [HttpPost]
-        public void Create([FromBody]Category newCategory)
+        public void Create([FromBody]Anime newAnime)
         {
-
         }
 
         [HttpPut("{id}")]
-        public void Update(int id, [FromBody]Category updatedCategory)
+        public void Update(int id, [FromBody]Anime updatedAnime)
         {
-
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
 
+        [HttpGet("/category/{id}")]
+        public async Task<IEnumerable<Anime>> GetByCategory(int categoryId)
+        {
+            return new List<Anime>();
         }
     }
 }
