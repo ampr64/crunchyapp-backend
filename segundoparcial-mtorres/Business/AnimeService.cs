@@ -1,4 +1,6 @@
-﻿using segundoparcial_mtorres.DAL;
+﻿using segundoparcial_mtorres.Contracts;
+using segundoparcial_mtorres.DAL;
+using segundoparcial_mtorres.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace segundoparcial_mtorres.Business
 {
-    public class AnimeService
+    public class AnimeService : GenericService<Anime>, IAnimeService
     {
-        private ApplicationDbContext _context;
-
-        public AnimeService(ApplicationDbContext context) => _context = context;
-
-
+        public AnimeService(ApplicationDbContext context) : base(context)
+        {
+        }
     }
 }
