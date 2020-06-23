@@ -11,7 +11,7 @@ namespace segundoparcial_mtorres.DAL.Mappers
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Description)
-                .HasMaxLength(100)
+                .HasMaxLength(1000)
                 .IsRequired();
 
             builder.Property(p => p.Title)
