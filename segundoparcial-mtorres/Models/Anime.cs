@@ -1,11 +1,18 @@
 ﻿using System;
 namespace segundoparcial_mtorres.Models
 {
-    public class Anime
+    public class Anime : IEntityBase
     {
-        public Anime(){}
+        public Anime()
+        {
+        }
 
-        public int Id { get; set; }
+        public Anime(int categoryId, string title, string description, int episodes, bool isComplete, string imageUrl)
+            => (CategoryId, Title, Description, Episodes, IsComplete, ImageURL) = (categoryId, title, description, episodes, isComplete, imageUrl);
+
+        private Anime(int id) => Id = id;
+
+        public int Id { get; }
         public int CategoryId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
