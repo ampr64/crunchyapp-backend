@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using segundoparcial_mtorres.DAL;
 using Microsoft.EntityFrameworkCore;
+using segundoparcial_mtorres.IoC;
 
 namespace segundoparcial_mtorres
 {
@@ -31,6 +32,7 @@ namespace segundoparcial_mtorres
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("StreamDatabase")));
 
+            services.ConfigureIoC();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
