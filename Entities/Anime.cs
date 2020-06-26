@@ -17,6 +17,6 @@ namespace segundoparcial_mtorres.Entities
         public int Episodes { get; set; }
         public bool IsComplete { get; set; }
         public string ImageURL { get; set; }
-        public virtual Category Category { get; set; }
+        public Category Category { get; }
     }
 }

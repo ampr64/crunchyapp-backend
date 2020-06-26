@@ -19,22 +19,29 @@ namespace segundoparcial_mtorres.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Anime>>> GetAll()
         {
-            var result = await _service.Get();
+            var result = await _service.Get(x => x.Category);
             return result != null ? (ActionResult)Ok(result) : StatusCode(500);
         }
 
         [HttpGet("Paginated")]
         public async Task<ActionResult<PaginatedResult<Anime>>> GetPaginated(PaginatedRequest paginatedRequest)
         {
-            var result = await _service.GetPaginatedList(paginatedRequest);
+            var result = await _service.GetPaginatedList(paginatedRequest, x => x.Category);
             return result != null ? (ActionResult)Ok(result) : StatusCode(500);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Anime>> GetById(int id)
         {
-            var result = await _service.Find(id);
-            return result != null ? (ActionResult)Ok(result) : StatusCode(500);
+            var result = await _service.Find(id, x => x.Category);
+            return result != null ? (ActionResult)Ok(result) : NotFound();
+        }
+
+        [HttpGet("Category/{id}")]
+        public async Task<ActionResult<Anime>> GetByCategory(int id)
+        {
+            var result = await _service.Get(x => x.CategoryId.Equals(id));
+            return result != null ? (ActionResult)Ok(result) : NotFound();
         }
 
         [HttpPost]
@@ -59,7 +66,7 @@ namespace segundoparcial_mtorres.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return await _service.Delete(id) ? (IActionResult)Ok() : BadRequest(400);
+            return await _service.Delete(id) ? (IActionResult)Ok() : BadRequest();
         }
     }
 }

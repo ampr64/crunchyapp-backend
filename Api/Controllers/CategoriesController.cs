@@ -34,7 +34,7 @@ namespace segundoparcial_mtorres.Controllers
         public async Task<ActionResult<Category>> GetById(int id)
         {
             var result = await _service.Find(id);
-            return result != null ? (ActionResult)Ok(result) : StatusCode(500);
+            return result != null ? (ActionResult)Ok(result) : NotFound();
         }
 
         [HttpPost]
@@ -59,7 +59,7 @@ namespace segundoparcial_mtorres.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            return await _service.Delete(id) ? (IActionResult)Ok() : BadRequest(400);
+            return await _service.Delete(id) ? (IActionResult)Ok() : BadRequest();
         }
     }
 }

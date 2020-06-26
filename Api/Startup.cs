@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using segundoparcial_mtorres.DataLayer;
 using segundoparcial_mtorres.IoC;
+using System.Text.Json.Serialization;
 
 namespace segundoparcial_mtorres
 {
@@ -22,7 +23,9 @@ namespace segundoparcial_mtorres
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                    .AddJsonOptions(options =>
+                        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
             services.AddSwaggerGen(c =>
             {
