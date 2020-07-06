@@ -48,6 +48,12 @@ namespace segundoparcial_mtorres
 
             app.UseSwagger();
 
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apple Crumble Stream");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -59,11 +65,7 @@ namespace segundoparcial_mtorres
                 endpoints.MapControllers();
             });
 
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apple Crumble Stream");
-                c.RoutePrefix = string.Empty;
-            });
+            app.UseCors(config => config.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader());
         }
     }
 }
