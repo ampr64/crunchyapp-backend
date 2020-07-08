@@ -37,8 +37,8 @@ namespace DataLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageURL")
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100)
+                        .HasColumnType("varchar(500)")
+                        .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<bool>("IsComplete")
@@ -54,6 +54,38 @@ namespace DataLayer.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Anime");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            Description = "Izuku has dreamt of being a hero all his life—a lofty goal for anyone, but especially challenging for a kid with no superpowers. That’s right, in a world where eighty percent of the population has some kind of super-powered “quirk,” Izuku was unlucky enough to be born completely normal. But that’s not enough to stop him from enrolling in one of the world’s most prestigious hero academies.",
+                            Episodes = 88,
+                            ImageURL = "https://i2.wp.com/lacomikeria.com/wp-content/uploads/2020/04/c5c213f074e0325713cce87b281fc78e8b978b95r1-722-1024v2_uhq.jpg?resize=600%2C400&ssl=1",
+                            IsComplete = false,
+                            Title = "My Hero Academia"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 5,
+                            Description = "Impassive girl meets trouble maker in a brand new love story! After Mizutani Shizuku, a girl whose sole interest is studying, is asked to deliver some handouts to Yoshida Haru, a boy who hasn't come to school after spilling blood on the first day, she finds herself the target of his affection. This is a story about a boy and a girl who struggle with love and friendship. Opening yourself up to other people forces you to be honest with yourself.",
+                            Episodes = 13,
+                            ImageURL = "https://i.pinimg.com/originals/a0/92/54/a09254f34a19bcbd85d99caffb6a3ee4.png",
+                            IsComplete = true,
+                            Title = "My Little Monster"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 4,
+                            Description = "Kicked out of his orphanage and on the verge of starving to death, Nakajima Atsushi meets some strange men. One of them, Dazai Osamu, is a suicidal man attempting to drown himself in broad daylight. The other, bespectacled Kunikida Doppo, nervously stands by flipping through a notepad. Both are members of the  \"Armed Detective Agency \" said to solve incidents that even the military and police won't touch. Atsushi ends up accompanying them on a mission to eliminate a man-eating tiger that's been terrorizing the population...",
+                            Episodes = 37,
+                            ImageURL = "https://obs.line-scdn.net/0hMBCFH-r4Em1-PzqfLettOkRpEQJNUwFuGglDcy5RTFkHB1E_FlBfWFI-GVtSDFUzEApZAls8CVwAWlUyRl9f/w644",
+                            IsComplete = true,
+                            Title = "Bungou Stray Dogs"
+                        });
                 });
 
             modelBuilder.Entity("segundoparcial_mtorres.Entities.Category", b =>
@@ -138,8 +170,8 @@ namespace DataLayer.Migrations
                         .HasMaxLength(1000);
 
                     b.Property<string>("ImageURL")
-                        .HasColumnType("varchar(100)")
-                        .HasMaxLength(100)
+                        .HasColumnType("varchar(500)")
+                        .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<bool>("IsComplete")
@@ -155,6 +187,41 @@ namespace DataLayer.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Manga");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "Hajime Isayama",
+                            CategoryId = 1,
+                            Chapters = 129,
+                            Description = "A century ago, the grotesque giants known as Titans appeared and consumed all but a few thousand humans. The survivors took refuge behind giant walls. Today, the threat of the Titans is a distant memory, and a boy named Eren yearns to explore the world beyond Wall Maria. But what began as a childish dream will become an all-too-real nightmare when the Titans return and humanity is once again on the brink of extinction",
+                            ImageURL = "https://i1.wp.com/lacomikeria.com/wp-content/uploads/2020/06/Attack-on-Titan-manga.jpg?resize=600%2C400&ssl=1",
+                            IsComplete = false,
+                            Title = "Attack on Titan"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Aya Nakahara",
+                            CategoryId = 5,
+                            Chapters = 66,
+                            Description = "Love is unusual for Koizumi Risa and Ootani Atsushi, who are both striving to find their ideal partner in high school—172 cm tall Koizumi is much taller than the average girl, and Ootani is much shorter than the average guy at 156 cm. To add to their plights, their crushes fall in love with each other, leaving Koizumi and Ootani comically flustered and heartbroken. To make matters worse, they're even labeled as a comedy duo by their homeroom teacher due to their personalities and the stark difference in their heights, and their classmates even think of their arguments as sketches.",
+                            ImageURL = "https://uploads.spiritfanfiction.com/fanfics/historias/202001/because-there-is-you-18417494-260120201649.png",
+                            IsComplete = false,
+                            Title = "Lovely Complex"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Author = "Inio Asano",
+                            CategoryId = 4,
+                            Chapters = 147,
+                            Description = "A coming-of-age drama story, it follows the life of a child named Onodera Punpun, from his elementary school years to his early 20s, as he copes with his dysfunctional family, love life, friends, life goals and hyperactive mind, while occasionally focusing on the lives and struggles of his schoolmates and family. Punpun and the members of his family are normal humans, but are depicted to the reader in the forms of birds. The manga explores themes such as depression, love, social isolation, sex, death, and family.",
+                            ImageURL = "https://media.metrolatam.com/2020/01/22/template90-703d63d7f00a258de6aea0cc70cd8d85-600x400.jpg",
+                            IsComplete = true,
+                            Title = "Goodnight, Punpun"
+                        });
                 });
 
             modelBuilder.Entity("segundoparcial_mtorres.Entities.Anime", b =>

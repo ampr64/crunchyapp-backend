@@ -38,14 +38,14 @@ namespace segundoparcial_mtorres.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Category newCategory)
+        public async Task<IActionResult> Create([FromBody] Category newCategory)
         {
             var result = await _service.Create(newCategory);
             return result != null ? (IActionResult)CreatedAtAction(nameof(GetById), new { id = result.Id }, result) : StatusCode(500);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Category updatedCategory)
+        public async Task<IActionResult> Update(int id, [FromBody] Category updatedCategory)
         {
             var result = await _service.CreateOrUpdate(updatedCategory);
             if (result.Equals(default))

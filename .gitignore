@@ -357,3 +357,4 @@ healthchecksdb
 *.targets
 *.props
 /ServiceLayer/obj
+/ServiceLayer/bin/Debug/netcoreapp3.1

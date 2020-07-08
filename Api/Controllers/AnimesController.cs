@@ -52,7 +52,7 @@ namespace segundoparcial_mtorres.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Anime updatedAnime)
+        public async Task<IActionResult> Update(int id, [FromBody] Anime updatedAnime)
         {
             var result = await _service.CreateOrUpdate(updatedAnime);
             if (result.Equals(default))

@@ -46,14 +46,14 @@ namespace segundoparcial_mtorres.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Manga newManga)
+        public async Task<IActionResult> Create([FromBody] Manga newManga)
         {
             var result = await _service.Create(newManga);
             return result != null ? (IActionResult)CreatedAtAction(nameof(GetById), new { id = result.Id }, result) : StatusCode(500);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Manga manga)
+        public async Task<IActionResult> Update(int id, [FromBody] Manga manga)
         {
             var result = await _service.CreateOrUpdate(manga);
             if (result.Equals(default))

@@ -5,12 +5,10 @@ namespace segundoparcial_mtorres.Entities
     {
         public Manga() { }
 
-        public Manga(int categoryId, string title, string author, string description, int chapters, bool isComplete, string imageUrl)
-            => (CategoryId, Title, Author, Description, Chapters, IsComplete, ImageURL) = (categoryId, title, author, description, chapters, isComplete, imageUrl);
+        public Manga(int id, int categoryId, string title, string author, string description, int chapters, bool isComplete, string imageUrl)
+            => (Id, CategoryId, Title, Author, Description, Chapters, IsComplete, ImageURL) = (id, categoryId, title, author, description, chapters, isComplete, imageUrl);
 
-        private Manga(int id) => Id = id;
-
-        public int Id { get; }
+        public int Id { get; set; }
         public int CategoryId { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
