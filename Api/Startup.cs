@@ -23,10 +23,6 @@ namespace segundoparcial_mtorres
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
-                    .AddJsonOptions(options =>
-                        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Segundo Parcial", Version = "v1" });
@@ -36,6 +32,13 @@ namespace segundoparcial_mtorres
               options.UseSqlServer(Configuration.GetConnectionString("StreamDatabase")));
 
             services.ConfigureIoC();
+
+            services.AddControllers()
+                    .AddJsonOptions(options =>
+                        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,14 +61,18 @@ namespace segundoparcial_mtorres
 
             app.UseRouting();
 
+            app.UseCors(
+                options => options.SetIsOriginAllowed(x => _ = true)
+                                  .AllowAnyMethod()
+                                  .AllowAnyHeader()
+            );
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-            app.UseCors(config => config.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader());
         }
     }
 }
