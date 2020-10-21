@@ -10,14 +10,19 @@ namespace CrunchyAppBackend.Application.IoC
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             var genericType = typeof(IGenericService<>).GetGenericTypeDefinition();
-            var contractsTypes = typeof(IGenericService<>).Assembly.GetTypes(t => t.IsInterface && t.ImplementsGenericInterface(genericType));
+            var serviceInterfaceTypes = typeof(IGenericService<>)
+                .Assembly
+                .GetTypes(t => t.IsInterface && t.ImplementsGenericInterface(genericType));
 
-            foreach (var contractType in contractsTypes)
+            foreach (var interfaceType in serviceInterfaceTypes)
             {
-                var implementationType = typeof(GenericService<>).Assembly.FindType(t => t.IsClass && contractType.IsAssignableFrom(t));
+                var implementationType = typeof(GenericService<>)
+                    .Assembly
+                    .FindType(t => t.IsClass && interfaceType.IsAssignableFrom(t));
+
                 if (implementationType != null)
                 {
-                    services.AddTransient(contractType, implementationType);
+                    services.AddTransient(interfaceType, implementationType);
                 }
             }
             return services;
